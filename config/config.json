@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "process.env.DB_USER",
-    "password": "process.env.DB_PASS",
-    "database": "process.env.DB_NAME",
-    "host": "process.env.DB_HOST",
+    "username": "env.DB_USER",
+    "password": "env.DB_PASS",
+    "database": "env.DB_NAME",
+    "host": "env.DB_HOST",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "process.env.DB_USER",
-    "password": "process.env.DB_PASS",
-    "database": "process.env.DB_NAME",
-    "host": "process.env.DB_HOST",
+    "username": "DB_USER",
+    "password": "DB_PASS",
+    "database": "DB_NAME",
+    "host": "DB_HOST",
     "dialect": "mysql"
   }
 }
