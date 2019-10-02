@@ -30,9 +30,11 @@ $(document).ready(function() {
     })
       .then(function() {
         window.location.replace("/members");
+        //res.render("members");
         // If there's an error, log the error
       })
       .catch(function(err) {
+        alert("No User with that credentials was found!");
         console.log(err);
       });
   }

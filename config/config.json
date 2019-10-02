@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Itapeva1998",
     "database": "login_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "isername": "DB_USER",
+    "username": "DB_USER",
     "password": "DB_PASS",
     "database": "DB_NAME",
     "use_env_variable": "JAWSDB_MARIA_URL",
