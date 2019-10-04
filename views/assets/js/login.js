@@ -1,8 +1,12 @@
 $(document).ready(function() {
+  
   // Getting references to our form and inputs
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
+  
+  
+  
 
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
@@ -29,12 +33,18 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
+        //sessionStorage.setItem('password', password);
+        //sessionStorage.setItem('email', email);
+        
+        //console.log(coockieEmail + coockiePass);
+        
+
         window.location.replace("/members");
         //res.render("members");
         // If there's an error, log the error
       })
       .catch(function(err) {
-        alert("No User with that credentials was found!");
+        alert("Wrong Email or Password!");
         console.log(err);
       });
   }
