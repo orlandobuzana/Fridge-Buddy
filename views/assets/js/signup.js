@@ -39,6 +39,11 @@ $(document).ready(function() {
       fridgeName: fridgename
     })
       .then(function(data) {
+        //Save the env login as a Session
+        sessionStorage.setItem(password, password);
+        sessionStorage.setItem(email, email);
+
+
         window.location.replace("/members");
         //res.render("members");
         // If there's an error, handle it by throwing up a bootstrap alert
@@ -48,7 +53,7 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     console.log(err.responseJSON)
-    $("#alert .msg").text(err.responseJSON.name);
+    $("#alert .msg").text('User Already exist');
     $("#alert").fadeIn(500);
   }
 });

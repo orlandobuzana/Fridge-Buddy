@@ -35,6 +35,7 @@ module.exports = function(app) {
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
+    
     req.logout();
     res.redirect("/");
     //res.render("login");
@@ -44,17 +45,33 @@ module.exports = function(app) {
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      res.json({error:"not Loged-in"});
+      res.json({error:"not Logged-in"});
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        name: req.user.userName,
+        name: req.user.username,
         email: req.user.email,
         id: req.user.id,
-        fridgeName: req.fridge.fridgeName
+        //fridgeName: req.fridge.fridgeName
 
       });
     }
   });
-};
+
+  //Route for all the fridges
+  app.get("/api/fridge", function(req,res){
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({error:"not Logged-in"});
+    }else{
+    db.Fridge.findAll({where:{
+      UserId : req.user.id
+    }
+    }).then(function(result){
+      res.json(result);
+
+    })
+  }
+})
+}

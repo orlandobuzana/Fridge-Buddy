@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
       validate: {
         len: [1]
       }
@@ -28,8 +28,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   User.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
+    // Associating Fridges with Posts
+    // When an Fridge is deleted, also delete any associated Posts
     User.hasMany(models.Fridge, {
       onDelete: "cascade"
     });
