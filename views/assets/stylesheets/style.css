@@ -2,3 +2,13 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+body {
+  background-image: url(/assets/img/image2vector.svg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+
+
