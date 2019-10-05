@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+*
+{
+  font-family: 'Anton', sans-serif;
+  margin:0;
+  padding:0;
+}
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+body {
+  
+  background: #48949d;
+}
+.wrapper{
+  
+  padding:0;
+  background: #ffffffd6;
+}
+.fc{
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+}
+.fc > * { 
+  padding: 0px;   
+}
+
+/* initialize flexbox container and flexbox items */
+.fc { 
+  display: flex;
+  flex-flow: row wrap;
+}
+.fc > * { 
+  flex: 1; 
+}
+
+/* header and footer should be full width */
+
+.fc header,
+.fc footer {
+    
+  flex: 0 1 100vw; 
+}
+        
+/* ensure flex-container is always at least as tall as the viewport. 
+   Keeps footer from coming up*/
+.fc { min-height: 100vh; }
+/* ensure flex-container is always at least as tall as the viewport, 
+   minus the height of the header and footer combined. 
+*/
+.fc { min-height: calc(100vh - 200px); } 
+
+.fc main{
+    text-align: center;
+    max-height: auto;
+    
+    flex: 0 1 100vw;  
+}
+
+
+.fc aside{
+    margin-right: auto;
+    background-size: auto;
+    width: 250 erm;
+    text-align: center;
+    max-width: 250 erm;
+}
+   
+.fc section{
+    margin-right: 25px;
+    text-align: center;
+    max-width: auto;
+    min-width: 250px;
+    
+}
+ul{
+  list-style: none;
+}
+
+
+/* size header and footer to be full width each */
+header,
+footer {
+  text-align: center;
+  box-sizing: border-box;
+  width: 100vw;
+  
+}
+
+

@@ -16,6 +16,10 @@ module.exports = function(sequelize, DataTypes) {
         foreignKey: {
           allowNull: false
         }
+      }),
+
+      Fridge.hasMany(models.Items, {
+        onDelete: "cascade"
       });
     };
   
