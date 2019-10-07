@@ -5,6 +5,8 @@ $(document).ready(function() {
   var itemNameInput = $("input#itemName-input");
   var itemDescriptionInput = $("textarea#itemDescription-input");
   var itemQtInput = $("input#itemQt-input");
+  var uList = $("<ul></ul>");
+  var ulItem = $("<li></li>");
   
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -16,10 +18,20 @@ $(document).ready(function() {
   });
   $.get("/api/fridge").then(function(data) {
     console.log(data);
-    $(".fridgeName").text(data[0].fridgeName);
+    $(".fridgeName").append(data[0].fridgeName);
     console.log(data);
   
   });
+  $.get("/api/items").then(function(data) {
+    console.log(data);
+    for(let x=0;x < data.lenght;x++){
+      $("#itemList").html(data[x].itemName);
+
+    }
+    //$(".itemList").text(data[0].itemName);
+    console.log(data);
+  });
+
   addItemForm.on("submit", function(event){
     event.preventDefault();
     var itemData = {
@@ -43,7 +55,7 @@ $(document).ready(function() {
 
   function addItem(itemName, itemDescription, itemQt) {
     console.log(itemName, itemDescription, itemQt);
-    $.post("/api/add_item", {
+    $.post("/api/items/add_item", {
       itemName: itemName,
       itemDescription: itemDescription,
       itemQt: itemQt

@@ -53,7 +53,7 @@ module.exports = function(app) {
         name: req.user.username,
         email: req.user.email,
         id: req.user.id,
-        //fridgeName: req.fridge.fridgeName
+        fridgeName: req.fridge.fridgeName
 
       });
     }
@@ -74,41 +74,5 @@ module.exports = function(app) {
     })
   }
 })
-// Route for a item. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/add_item", function(req, res) {
-    db.Items.create({
-      itemName: req.body.itemName,
-      itemDescription: req.body.itemDescription,
-      itemQt: req.body.itemQt
-
-      
-    }, {include: db.Fridge})
-      .then(function(data) {
-        console.log(data);
-        //res.redirect(307, "/api/add_item");
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
-      })
-  });
-
-  //Route for all the items
-  app.get("/api/items", function(req,res){
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({error:"not Logged-in"});
-    }else{
-    db.items.findAll({where:{
-      FridgeId : req.fridge.id
-    }
-    }).then(function(result){
-      res.json(result);
-
-    })
-  }
-})
-
 
 }

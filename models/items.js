@@ -16,9 +16,9 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
 
-        intemQt: {
+        itemQt: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: false,
             validate: {
               len: [1]
             } 
