@@ -1,6 +1,7 @@
 //import { on } from "cluster";
 
 $(document).ready(function() {
+  var fridgeId;
   var addItemForm = $("form.add-item");
   var itemNameInput = $("input#itemName-input");
   var itemDescriptionInput = $("textarea#itemDescription-input");
@@ -10,26 +11,35 @@ $(document).ready(function() {
   
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $.get("/api/user").then(function(data) {
+  $.get("/api/user_data").then(function(data) {
+    console.log("this is the user data")
     console.log(data);
-    $(".username").text(data[0].name);
-    console.log(data);
+    $(".username").text(data.username);
+    console.log(data.username);
   
   });
-  $.get("/api/fridge").then(function(data) {
-    console.log(data);
-    $(".fridgeName").append(data[0].fridgeName);
-    console.log(data);
+  $.get("/api/fridge").then(function(fridgeData) {
+    console.log("this is the ffridge data");
+    console.log(fridgeData);
+    $(".fridgeName").append(fridgeData[0].fridgeName);
+    fridgeId = fridgeData[0].id;
+    
   
   });
   $.get("/api/items").then(function(data) {
+    console.log(`this is running the jquery`);
     console.log(data);
     for(let x=0;x < data.lenght;x++){
-      $("#itemList").html(data[x].itemName);
+      var list = document.createElement("LI");                 // Create a <li> node
+      var item = data[x].itemName;
+      list.appendChild(item);                              
+
+      document.getElementById("fridgeContents").appendChild(list);
+      // $(".fridgeContents").append(`<li>${data[x].itemName}</li>`);
 
     }
-    //$(".itemList").text(data[0].itemName);
-    console.log(data);
+    $(".itemList").text(data[0].itemName);
+    console.log(data[0].itemName);
   });
 
   addItemForm.on("submit", function(event){
@@ -45,20 +55,20 @@ $(document).ready(function() {
       //return;
       console.log("nothing returned");
     }
-    addItem(itemData.itemName, itemData.itemDescription, itemData.itemQt);
+    addItem(itemData.itemName, itemData.itemDescription, itemData.itemQt, fridgeId);
     itemNameInput.val("");
     itemDescriptionInput.val("");
     itemQtInput.val("");
-
   })
 
 
-  function addItem(itemName, itemDescription, itemQt) {
-    console.log(itemName, itemDescription, itemQt);
+  function addItem(itemName, itemDescription, itemQt, fridgeId) {
+    console.log(itemName, itemDescription, itemQt, fridgeId);
     $.post("/api/items/add_item", {
       itemName: itemName,
       itemDescription: itemDescription,
-      itemQt: itemQt
+      itemQt: itemQt,
+      fridgeId: fridgeId
     })
       .then(function(data) {
         console.log("deu certo");

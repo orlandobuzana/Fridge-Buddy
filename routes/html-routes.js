@@ -12,13 +12,13 @@ module.exports = function(app) {
       res.render("members");
     }
     //res.sendFile(path.join(__dirname, "../public/signup.html"));
-    res.render("login");
+    res.render("login",{title:'Fridge Buddy'});
   });
 
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render("members");
+      res.render("members",{title:'members'});
     }
     //res.sendFile(path.join(__dirname, "../views/signUp"));
     res.render("signup")
@@ -28,7 +28,7 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     //res.sendFile(path.join(__dirname, "../public/members.html"));
-    res.render("members");
+    res.render("members",{title:'members'});
   });
 
 };

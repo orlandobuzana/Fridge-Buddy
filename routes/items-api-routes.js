@@ -23,20 +23,21 @@ module.exports = function(app) {
     }
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
+    // In this case, just db.Item
     db.Items.findAll({
       where: query,
       include: [db.Fridge]
     }).then(function(dbItem) {
       res.json(dbItem);
+      console.log(`this is dbItem `);
     });
   });
 
-  // Get route for retrieving a single post
+  // Get route for retrieving a single item
   app.get("/api/items/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
+    // In this case, just db.itemName
     db.Item.findOne({
       where: {
         id: req.params.id
@@ -47,13 +48,14 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for saving a new post
+  // POST route for saving a new item
   app.post("/api/items/add_item", function(req, res) {
     db.Items.create({
         itemName: req.body.itemName,
         itemDescription: req.body.itemDescription,
-        itemQt: req.body.itemQt
-      },{include: db.Fridge})
+        itemQt: req.body.itemQt,
+        FridgeId: req.body.fridgeId
+      })
         .then(function(data) {
           console.log(data);
           console.log("nao deu certo");
@@ -76,15 +78,15 @@ module.exports = function(app) {
   });
 
   // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(
+  app.put("/api/update_item", function(req, res) {
+    db.Item.update(
       req.body,
       {
         where: {
           id: req.body.id
         }
-      }).then(function(dbPost) {
-      res.json(dbPost);
+      }).then(function(dbItem) {
+      res.json(dbItem);
     });
   });
 };
