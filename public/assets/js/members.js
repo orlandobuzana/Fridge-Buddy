@@ -30,12 +30,8 @@ $(document).ready(function() {
     console.log(`this is running the jquery`);
     console.log(data);
     for(let x=0;x < data.lenght;x++){
-      var list = document.createElement("LI");                 // Create a <li> node
-      var item = data[x].itemName;
-      list.appendChild(item);                              
-
-      document.getElementById("fridgeContents").appendChild(list);
-      // $(".fridgeContents").append(`<li>${data[x].itemName}</li>`);
+      
+      $(".fridgeContents").append(`<li>${data[x].itemName}</li>`);
 
     }
     $(".itemList").text(data[0].itemName);
