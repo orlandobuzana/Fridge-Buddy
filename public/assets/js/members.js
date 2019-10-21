@@ -56,7 +56,7 @@ $(document).ready(function() {
     itemDescriptionInput.val("");
     itemQtInput.val("");
   })
-
+  
 
   function addItem(itemName, itemDescription, itemQt, fridgeId) {
     console.log(itemName, itemDescription, itemQt, fridgeId);

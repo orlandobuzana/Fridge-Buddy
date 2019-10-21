@@ -39,7 +39,7 @@ $(document).ready(function() {
       fridgeName: fridgename
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/members/"+data[0].email);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

@@ -1,43 +1,47 @@
-  <!--NavBar-->
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!--Logout Btn -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Fridge Buddy
-      </a>
-      
-    </div>
-  </div>
-</nav>
+<!--NavBar-->
+<div class="fc ">
+  <header class="border border-dark border-top-0 border-left-0 border-right-0 text-white ">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!--Logout Btn -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/logout">
+            Fridge Buddy
+          </a>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
   <!--
   <aside> 
       
       <img src="/assets/img/logo.svg" alt="fridge graphic">
     </aside> -->
-    <section > 
-      <div class="row">
+  <section>
+    <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Create an account</h2>
         <!--Form-->
         <form class="signup">
           <!--name-->
-          <div class="form-group">
+          <div class="form-group text-left">
             <label for="InputName">User Name</label>
             <input type="text" class="form-control" id="username-input" placeholder="User Name">
           </div>
           <!--fridge-->
-          <div class="form-group">
+          <div class="form-group text-left">
             <label for="InputFridgeName">Fridge Name</label>
-            <input type="text" class="form-control" id="fridgeName-input" placeholder="Fridge Name">
+            <input type="text" class="form-control" id="fridgeName-input" placeholder="Fridge Name or Location">
           </div>
           <!--email-->
-          <div class="form-group">
+          <div class="form-group text-left">
             <label for="InputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
           <!--Password-->
-          <div class="form-group">
+          <div class="form-group text-left">
             <label for="InputPassword1">Password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
@@ -46,15 +50,18 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
         <br />
         <p>Or log in <a href="/">here</a></p>
       </div>
     </div>
-    </section>
-    
-    
-  
-  <script type="text/javascript" src="/assets/js/signup.js"></script>
-  
+  </section>
+
+
+  <footer class="bg-dark">
+    <p>Fridge Buddy 2019 &copy;</p>
+  </footer>
+
+</div>
+<script type="text/javascript" src="/assets/js/signup.js"></script>

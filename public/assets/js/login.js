@@ -33,15 +33,17 @@ $(document).ready(function() {
       password: password
     })
       .then(function() {
+        $.get("/api/fridge").then(function(data) {
         //sessionStorage.setItem('password', password);
         //sessionStorage.setItem('email', email);
         
         //console.log(coockieEmail + coockiePass);
         
 
-        window.location.replace("/members");
+          window.location.replace("/members/"+data[0].id);
         //res.render("members");
         // If there's an error, log the error
+        })
       })
       .catch(function(err) {
         alert("Wrong Email or Password!");
