@@ -10,7 +10,7 @@ module.exports = function(app) {
 
     res.json(req.user);
     
-    res.render("members");
+    // res.render("members");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -27,7 +27,8 @@ module.exports = function(app) {
     }, {include: db.User})
       .then(function(data) {
         console.log(data);
-        res.redirect(307, "/members");
+        res.redirect(307, "/api/login");
+        // res.render('members')
       })
       .catch(function(err) {
         res.status(401).json(err);
@@ -70,8 +71,8 @@ module.exports = function(app) {
     }).then(function(result){
       res.json(result);
 
-    })
+    });
   }
-})
+});
 
-}
+};

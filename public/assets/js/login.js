@@ -39,11 +39,11 @@ $(document).ready(function() {
         
         //console.log(coockieEmail + coockiePass);
         
-
+        // window.location.replace("/members");
           window.location.replace("/members/"+data[0].id);
-        //res.render("members");
+          // res.render("members");
         // If there's an error, log the error
-        })
+        });
       })
       .catch(function(err) {
         alert("Wrong Email or Password!");

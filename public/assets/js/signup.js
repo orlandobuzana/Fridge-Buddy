@@ -39,14 +39,14 @@ $(document).ready(function() {
       fridgeName: fridgename
     })
       .then(function(data) {
-        window.location.replace("/members/"+data[0].email);
+        window.location.replace("/members");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
-    console.log(err.responseJSON)
+    console.log(err);
     $("#alert .msg").text('User Already exist');
     $("#alert").fadeIn(500);
   }
